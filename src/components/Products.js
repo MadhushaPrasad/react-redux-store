@@ -8,13 +8,7 @@ function Products() {
   const [products, setProducts] = useState([])
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then((response) => response.json())
-      .then((data) => {
-        setProducts(data)
-      })
-  }, [])
+  useEffect(() => {}, [])
 
   const addToCart = (product) => {
     dispatch(add(product))
