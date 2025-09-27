@@ -7,7 +7,7 @@ function NavBarPanel() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#">Redux Toolkit</Navbar.Brand>
+        <Navbar.Brand to="/" as={Link}>Redux Toolkit</Navbar.Brand>
         <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }}>
           <Nav.Link to="/products" as={Link}>
             Products
