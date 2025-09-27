@@ -7,11 +7,19 @@ import { getProducts } from './../store/reducer/productSlice'
 
 function Products() {
   const dispatch = useDispatch()
-  const { data: products } = useSelector((state) => state.product)
+  const { data: products, status } = useSelector((state) => state.product)
 
   useEffect(() => {
     dispatch(getProducts())
   }, [])
+
+  if(status == 'loading'){
+    return <p>Loading .....</p>
+  }
+
+  if(status == 'error'){
+    return <p>Something Went Wrong! Try again later</p>
+  }
 
   const addToCart = (product) => {
     dispatch(add(product))
