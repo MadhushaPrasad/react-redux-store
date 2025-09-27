@@ -13,11 +13,11 @@ function Products() {
     dispatch(getProducts())
   }, [])
 
-  if(status == 'loading'){
+  if(status === 'loading'){
     return <p>Loading .....</p>
   }
 
-  if(status == 'error'){
+  if(status === 'error'){
     return <p>Something Went Wrong! Try again later</p>
   }
 
