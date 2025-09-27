@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useState, useEffect } from 'react'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import { remove } from './../store/reducer/cartSlice'
@@ -7,7 +6,7 @@ import { remove } from './../store/reducer/cartSlice'
 function Cart() {
   const cartProducts = useSelector((state) => state.cart)
   const dispatch = useDispatch()
-  const cards = cartProducts.map((product, index) => {
+  const cards = cartProducts.map((product) => {
     return (
       <div className="col-md-3" style={{ marginBottom: '10px' }}>
         <Card key={product.id} className="h-100">
@@ -19,7 +18,7 @@ function Cart() {
             <Card.Text>LKR: {product.price}</Card.Text>
           </Card.Body>
           <Card.Footer style={{ background: 'white' }}>
-            <Button variant="primary" className="btn-danger" onClick={() => removeFromCart(index)}>
+            <Button variant="primary" className="btn-danger" onClick={() => removeFromCart(product.id)}>
               remove
             </Button>
           </Card.Footer>
@@ -28,8 +27,8 @@ function Cart() {
     )
   })
 
-  const removeFromCart = (productIndex) => {
-    dispatch(remove(productIndex))
+  const removeFromCart = (productId) => {
+    dispatch(remove(productId))
   }
 
   return (
