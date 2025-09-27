@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 const initialState = {
   data: [],
@@ -7,20 +7,31 @@ const initialState = {
 const productSlice = createSlice({
   name: 'product',
   initialState: initialState,
-  reducers: {
-    fetchProducts:(state,action)=>{
+  // reducers: {
+  //   fetchProducts: (state, action) => {
+  //     state.data = action.payload
+  //   },
+  // },
+  extraReducers: (builder) => {
+    builder.addCase(getProducts.fulfilled, (state, action) => {
       state.data = action.payload
-    }
+    })
   },
 })
 
-export const {fetchProducts} = productSlice.actions
+export const { fetchProducts } = productSlice.actions
 export default productSlice.reducer
 
-export function getProducts() {
-  return async function getProductsThunk(dispatch, getState) {
-    const data = await fetch('https://fakestoreapi.com/products')
-    const result = await data.json()
-    dispatch(fetchProducts(result))
-  }
-}
+export const getProducts = createAsyncThunk('products/get', async () => {
+  const data = await fetch('https://fakestoreapi.com/products')
+  const result = await data.json()
+  return result
+})
+
+// export function getProducts() {
+//   return async function getProductsThunk(dispatch, getState) {
+//     const data = await fetch('https://fakestoreapi.com/products')
+//     const result = await data.json()
+//     dispatch(fetchProducts(result))
+//   }
+// }
