@@ -1,3 +1,33 @@
+# 🛍️ Simple Online Store
+
+A lightweight online store built with **React**, **Redux Toolkit**, and **React-Redux**.  
+This project fetches product data from the [Fake Store API](https://fakestoreapi.com/) and demonstrates how to structure a modern React + Redux application with asynchronous data fetching.
+
+---
+
+## ✨ Features
+- 📦 **Product Listing** – Fetches products dynamically from Fake Store API.  
+- ⚡ **State Management** – Powered by Redux Toolkit slices.  
+- 🔄 **Async Thunks** – Handles API requests with loading and error states.  
+- 🛠️ **Scalable Structure** – Easily extendable for cart, filtering, or authentication features.  
+
+---
+
+## 🛠️ Tech Stack
+- [React](https://reactjs.org/) – Frontend library  
+- [Redux Toolkit](https://redux-toolkit.js.org/) – State management  
+- [React-Redux](https://react-redux.js.org/) – React bindings for Redux  
+- [Fake Store API](https://fakestoreapi.com/) – Sample product data  
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/simple-online-store.git
+cd simple-online-store
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
