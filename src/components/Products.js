@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { add } from './../store/reducer/cartSlice'
+import { getProducts } from './../store/reducer/productSlice'
 
 function Products() {
-  const [products, setProducts] = useState([])
   const dispatch = useDispatch()
+  const { data: products } = useSelector((state) => state.product)
 
-  useEffect(() => {}, [])
+  useEffect(() => {
+    dispatch(getProducts())
+  }, [])
 
   const addToCart = (product) => {
     dispatch(add(product))
