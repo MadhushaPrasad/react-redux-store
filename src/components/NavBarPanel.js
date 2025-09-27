@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 function NavBarPanel() {
 
-  const cartProduct =useSelector(state => state.cart );
+  const cartProducts =useSelector(state => state.cart );
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -22,7 +22,7 @@ function NavBarPanel() {
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
             <Nav.Link to="/cart" as={Link}>
-              My bag {cartProduct.length}
+              My bag {cartProducts.length}
             </Nav.Link>
           </Navbar.Text>
         </Navbar.Collapse>
